@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:state) }
   end
 
-  descrive 'Relationships' do
-    it { should have_one(:location) }
-  end
+  # describe 'Relationships' do
+  #   it { should have_one(:location) }
+  # end
 end

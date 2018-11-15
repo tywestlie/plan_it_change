@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user, only: [:show
+  before_action :authenticate_user, only: [:show]
 
   def index
     render json: { service: 'auth-api', status: 200 }
