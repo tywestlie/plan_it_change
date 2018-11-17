@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe HomeController, type: :controller do
+RSpec.describe Api::V1::HomeController do
   describe "GET #index" do
     it "returns a 200 success response" do
-      response = get :index
+      get :index
 
       expect(response).to have_http_status(200)
     end

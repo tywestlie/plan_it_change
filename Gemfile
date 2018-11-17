@@ -9,11 +9,13 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'rack-cors'
+gem 'rack-cors', :require => 'rack/cors'
 gem 'knock'
 gem 'jwt'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'devise'
+gem 'factory_bot_rails', "~> 4.0"
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

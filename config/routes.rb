@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   post 'user_token' => 'user_token#create'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :api do
     namespace :v1 do
-      get '/authenticate' => 'home#show'
+      get '/authenticate', to: 'home#show'
+      get '/home', to: 'home#index'
+      get '/user_index', to: 'users#index'
+      get '/user_show', to: 'users#show'
+      patch '/user_update/:id', to: 'users#update'
+      post '/user_create', to: 'users#create'
     end
   end
 end
