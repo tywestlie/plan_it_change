@@ -1,4 +1,4 @@
-class Api::V1::UsersController < ApplicationController
+class Api::V1::UsersController < ApiController
   before_action :authenticate_user,   only: [:index, :show, :update]
   before_action :authorize_as_admin,  only: [:destroy]
 

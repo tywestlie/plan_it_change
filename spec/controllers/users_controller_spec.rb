@@ -47,7 +47,7 @@ RSpec.describe Api::V1::UsersController do
   describe "Patch #update" do
     it 'should return a 200 on a successful update' do
       authenticated_header(request, user)
-      patch :update, params: { use_route: "/api/v1/user_update/#{user.id}", id: user.id, user: { first_name: "Joseph", last_name: "Contral" } }
+      patch :update, params: { use_route: "/api/v1/user_update/#{user.id}", id: user.id, user: { first_name: "Joseph", last_name: "Contral"} }
 
       result = JSON.parse(response.body, symbolize_names: true)
 

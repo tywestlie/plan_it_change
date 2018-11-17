@@ -1,11 +1,4 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
   include Knock::Authenticable
-
-  protected
-
-  def authorize_as_admin
-    render status: 401 unless !current_user.nil? && current_user.is_admin?
-  end
-
-
 end

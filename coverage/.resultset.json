@@ -21,20 +21,20 @@
         1,
         1,
         1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
         null,
         1,
         null,
         null,
         null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
         null,
         null,
         null,
@@ -48,6 +48,12 @@
         1,
         null,
         null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
         null,
         null
       ],
@@ -294,7 +300,7 @@
         null,
         null
       ],
-      "/Users/judson/Projects/plan_it_change/plan_it_change/app/controllers/application_controller.rb": [
+      "/Users/judson/Projects/plan_it_change/plan_it_change/app/controllers/api_controller.rb": [
         1,
         1,
         null,
@@ -461,6 +467,6 @@
         null
       ]
     },
-    "timestamp": 1542489726
+    "timestamp": 1542492606
   }
 }

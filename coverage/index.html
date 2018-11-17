@@ -14,26 +14,26 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-17T14:22:06-07:00">2018-11-17T14:22:06-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-17T15:10:06-07:00">2018-11-17T15:10:06-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">97.48%</span></span>
+    (<span class="covered_percent"><span class="green">97.56%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.55
+         1.53
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>21</b> files in total.
-    <b>159</b> relevant lines. 
-    <span class="green"><b>155</b> lines covered</span> and
+    <b>164</b> relevant lines. 
+    <span class="green"><b>160</b> lines covered</span> and
     <span class="red"><b>4</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -71,7 +71,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#2f27d5daeb29423b3dfcdf41941ecdd10cba1aaa" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
+        <td class="strong"><a href="#fe749b12bf6db8158c282588263fd64cec78429c" class="src_link" title="app/controllers/api_controller.rb">app/controllers/api_controller.rb</a></td>
         <td class="red strong">80.0 %</td>
         <td>11</td>
         <td>5</td>
@@ -103,9 +103,9 @@
       <tr>
         <td class="strong"><a href="#7e7177edd85c0f544b87784ac0ea6ea6a24c48d4" class="src_link" title="config/application.rb">config/application.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>41</td>
-        <td>20</td>
-        <td>20</td>
+        <td>47</td>
+        <td>25</td>
+        <td>25</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -293,7 +293,7 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class Api::V1::HomeController &lt; ApplicationController</code>
+          <code class="ruby">class Api::V1::HomeController &lt; ApiController</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
@@ -384,7 +384,7 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class Api::V1::UsersController &lt; ApplicationController</code>
+          <code class="ruby">class Api::V1::UsersController &lt; ApiController</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="2">
@@ -620,9 +620,9 @@
 </div>
 
       
-        <div class="source_table" id="2f27d5daeb29423b3dfcdf41941ecdd10cba1aaa">
+        <div class="source_table" id="fe749b12bf6db8158c282588263fd64cec78429c">
   <div class="header">
-    <h3>app/controllers/application_controller.rb</h3>
+    <h3>app/controllers/api_controller.rb</h3>
     <h4><span class="red">80.0 %</span> covered</h4>
     <div>
       <b>5</b> relevant lines. 
@@ -637,7 +637,7 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class ApplicationController &lt; ActionController::API</code>
+          <code class="ruby">class ApiController &lt; ActionController::API</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="2">
@@ -916,8 +916,8 @@
     <h3>config/application.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>20</b> relevant lines. 
-      <span class="green"><b>20</b> lines covered</span> and
+      <b>25</b> relevant lines. 
+      <span class="green"><b>25</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -997,10 +997,10 @@
           <code class="ruby">require &quot;action_cable/engine&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"># require &quot;sprockets/railtie&quot;</code>
+          <code class="ruby">require &quot;sprockets/railtie&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="14">
@@ -1162,10 +1162,46 @@
         <li class="never" data-hits="" data-linenumber="40">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">    # Middleware for ActiveAdmin</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    config.middleware.use Rack::MethodOverride</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="43">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    config.middleware.use ActionDispatch::Flash</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    config.middleware.use ActionDispatch::Cookies</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="45">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    config.middleware.use ActionDispatch::Session::CookieStore</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
           
           
           <code class="ruby">end</code>
@@ -2903,7 +2939,7 @@
         <li class="covered" data-hits="1" data-linenumber="50">
           <span class="hits">1</span>
           
-          <code class="ruby">      patch :update, params: { use_route: &quot;/api/v1/user_update/#{user.id}&quot;, id: user.id, user: { first_name: &quot;Joseph&quot;, last_name: &quot;Contral&quot; } }</code>
+          <code class="ruby">      patch :update, params: { use_route: &quot;/api/v1/user_update/#{user.id}&quot;, id: user.id, user: { first_name: &quot;Joseph&quot;, last_name: &quot;Contral&quot;} }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="51">

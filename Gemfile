@@ -16,6 +16,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'devise'
 gem 'factory_bot_rails', "~> 4.0"
 gem 'faker'
+gem 'activeadmin'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
