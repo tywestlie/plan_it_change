@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_18_024728) do
+ActiveRecord::Schema.define(version: 2018_11_18_042553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,9 @@ ActiveRecord::Schema.define(version: 2018_11_18_024728) do
     t.datetime "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "owner"
+    t.index ["city"], name: "index_events_on_city"
+    t.index ["state"], name: "index_events_on_state"
   end
 
   create_table "events_users", id: false, force: :cascade do |t|
@@ -61,7 +64,6 @@ ActiveRecord::Schema.define(version: 2018_11_18_024728) do
     t.string "last_name", null: false
     t.string "email", null: false
     t.string "password_digest"
-    t.string "role", default: "user", null: false
     t.string "city"
     t.string "state"
     t.datetime "last_login"
