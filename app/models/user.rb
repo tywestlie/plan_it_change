@@ -24,4 +24,8 @@ class User < ApplicationRecord
   def is_admin?
     role == 'admin'
   end
+
+  def owns_event?(event)
+    event.owner == self.email
+  end
 end

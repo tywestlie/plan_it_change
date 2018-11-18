@@ -4,9 +4,13 @@ class Event < ApplicationRecord
 
   before_validation {
     (self.city = self.city.to_s.downcase) &&
-    (self.state = self.state.to_s.downcase)
+    (self.state = self.state.to_s.downcase) &&
+    (self.owner = self.owner.to_s.downcase)
   }
 
-  validates_presence_of :state, :city, :information, :start, :end
+  validates_presence_of :state, :city, :information, :start, :end, :owner, :name
 
+  def find_events_by_city_and_state(city, state)
+    where(city: "#{city}", state: "#{state}").order(start: :desc)
+  end
 end

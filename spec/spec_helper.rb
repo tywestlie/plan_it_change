@@ -98,3 +98,11 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def create_events
+  user1 = User.create!(User.create!(first_name: 'Joseph', last_name: 'Smith', email: 'Joseph@example.com', city: 'Denver', state: 'CO', password: 'password', password_confirmation: 'password'))
+  user2 = User.create!(User.create!(first_name: 'George', last_name: 'Smith', email: 'George@example.com', city: 'Denver', state: 'CO', password: 'password', password_confirmation: 'password'))
+  Event.create(city: "Denver", state: "CO", information: "This is an event to protest the elections for the new governor.", start: DateTime.parse("2018-10-20 08:00:00"), end: DateTime.parse("2018-10-20 18:00:00"), owner: user1.email, name: "Governors Protest")
+  Event.create(city: "Golden", state: "CO", information: "This is an event to protest the elections for the new congressperson.", start: DateTime.parse("2018-10-23 10:00:00"), end: DateTime.parse("2018-10-23 18:00:00"), owner: user1.email, name: "Congressional Protest")
+  Event.create(city: "Littleton", state: "CO", information: "This is an event to protest the elections for the new mayor.", start: DateTime.parse("2018-10-25 08:00:00"), end: DateTime.parse("2018-10-25 14:00:00"), owner: user2.email, name: "Mayoral Protest")
+end

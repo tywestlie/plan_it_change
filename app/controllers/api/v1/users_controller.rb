@@ -34,6 +34,6 @@ class Api::V1::UsersController < ApiController
   end
 
   def authorized?
-    true ? current_user && current_user.can_modify_user?(params[:id]) : false
+    current_user.can_modify_user?(params[:id])
   end
 end

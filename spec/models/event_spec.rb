@@ -7,5 +7,12 @@ RSpec.describe Event, type: :model do
     it { should validate_presence_of(:information) }
     it { should validate_presence_of(:start) }
     it { should validate_presence_of(:end) }
+    it { should validate_presence_of(:owner) }
+    it { should validate_presence_of(:name) }
+  end
+
+  describe 'Relationships' do
+    it { should have_many(:users, through: :events_users) }
+    it { should have_many(:events_users) }
   end
 end
