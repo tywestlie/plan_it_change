@@ -7,10 +7,18 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/authenticate', to: 'home#show'
       get '/home', to: 'home#index'
+
+      # User routes
       get '/user_index', to: 'users#index'
-      get '/user_show', to: 'users#show'
+      get '/user_show/:id', to: 'users#show'
       patch '/user_update/:id', to: 'users#update'
       post '/user_create', to: 'users#create'
+
+      # Event routes
+      get '/event_show/:id', to: 'events#show'
+      get '/event_index', to: 'events#index'
+      patch '/event_update', to: 'events#update'
+      post 'event_create', to: 'events#create'
     end
   end
 end
