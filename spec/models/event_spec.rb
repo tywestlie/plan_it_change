@@ -5,14 +5,14 @@ RSpec.describe Event, type: :model do
     it { should validate_presence_of(:city) }
     it { should validate_presence_of(:state) }
     it { should validate_presence_of(:information) }
-    it { should validate_presence_of(:start) }
-    it { should validate_presence_of(:end) }
+    it { should validate_presence_of(:start_time) }
+    it { should validate_presence_of(:end_time) }
     it { should validate_presence_of(:owner) }
-    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:event_name) }
   end
 
   describe 'Relationships' do
-    it { should have_many(:users, through: :events_users) }
+    it { should have_many(:users) }
     it { should have_many(:events_users) }
   end
 end

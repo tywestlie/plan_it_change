@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates_uniqueness_of   :email
 
   def can_modify_user?(user_id)
-    role == 'admin' || id.to_s == user_id.to_s
+    id.to_s == user_id.to_s
   end
 
   def is_admin?
