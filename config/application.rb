@@ -38,6 +38,9 @@ module PlanItChange
       end
     end
 
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.i18n.available_locales = [:en, :api]
+
     # Middleware for ActiveAdmin
     config.middleware.use Rack::MethodOverride
     config.middleware.use ActionDispatch::Flash

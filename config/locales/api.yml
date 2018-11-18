@@ -1,0 +1,18 @@
+api:
+  resources:
+    user: user
+    event: event
+  fields:
+    user:
+      email: "That email has already been used."
+  errors:
+    code:
+      blank: "That field cannot be blank."
+      not_found: "not found"
+      not_an_admin: "Sorry, you do not have the correct rights to do that."
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+
+
+    
