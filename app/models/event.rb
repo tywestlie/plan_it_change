@@ -7,6 +7,6 @@ class Event < ApplicationRecord
     (self.state = self.state.to_s.downcase)
   }
 
-  validates_presence_of  :state, :city, :information, :start, :end
+  validates_presence_of :state, :city, :information, :start, :end
 
 end

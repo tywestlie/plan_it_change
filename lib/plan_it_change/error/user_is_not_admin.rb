@@ -1,6 +1,5 @@
 module PlanItChange
   module Error
-        
     class UserIsNotAdmin < StandardError
 
       def http_status
