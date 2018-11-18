@@ -1,4 +1,4 @@
-class Api::V1::EventsController < ApplicationController
+class Api::V1::EventsController < ApiController
   before_action :authenticate_user, only: [:update, :create, :destroy]
 
   def show
@@ -8,7 +8,7 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def index
-    events = find_events_by_city_and_state(params[:city], params[:state])
+    events = Event.find_events_by_city_and_state(params[:city].downcase, params[:state].downcase)
 
     render json: events, status: 200
   end

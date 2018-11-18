@@ -10,7 +10,7 @@ class Event < ApplicationRecord
 
   validates_presence_of :state, :city, :information, :start_time, :end_time, :owner, :event_name
 
-  def find_events_by_city_and_state(city, state)
-    where(city: "#{city}", state: "#{state}").order(start: :desc)
+  def self.find_events_by_city_and_state(city, state)
+    where(city: "#{city}", state: "#{state}").order(start_time: :desc)
   end
 end
