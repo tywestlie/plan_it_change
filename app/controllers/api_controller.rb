@@ -3,9 +3,11 @@ class ApiController < ActionController::API
 
   protected
 
-  def authorize_as_admin
-    render status: 401 unless !current_user.nil? && current_user.is_admin?
+  def current_user
+    @current_user ||= begin
+      Knock::AuthToken.new(token: token).entity_for(User)
+    rescue Knock.not_found_exception_class, JWT::DecodeError
+      nil
+    end
   end
-
-
 end

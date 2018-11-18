@@ -7,6 +7,5 @@ FactoryBot.define do
     state             { "CO" }
     password          { "password" }
     password_confirmation { "password" }
-    role              { "user" }
   end
 end

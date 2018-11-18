@@ -21,7 +21,7 @@ RSpec.describe Api::V1::UsersController do
 
   describe "Post #create" do
     it "should return a 200 when creating a new user" do
-      post :create, params: { user: { first_name: 'Jim', last_name: 'Smith', email: 'Jim@example.com', city: 'Denver', state: 'CO', password: 'password', password_confirmation: 'password', role: 'user' } }
+      post :create, params: { user: { first_name: 'Jim', last_name: 'Smith', email: 'Jim@example.com', city: 'Denver', state: 'CO', password: 'password', password_confirmation: 'password' } }
 
       result = JSON.parse(response.body, symbolize_names: true)
 
@@ -31,9 +31,9 @@ RSpec.describe Api::V1::UsersController do
     end
 
     it "should return a 409 if the user already exists" do
-      user = User.create!(first_name: 'Jim', last_name: 'Smith', email: 'Jim@example.com', city: 'Denver', state: 'CO', password: 'password', password_confirmation: 'password', role: 'user')
+      user = User.create!(first_name: 'Jim', last_name: 'Smith', email: 'Jim@example.com', city: 'Denver', state: 'CO', password: 'password', password_confirmation: 'password')
 
-      post :create, params: { user: { first_name: 'Jim', last_name: 'Smith', email: 'Jim@example.com', city: 'Denver', state: 'CO', password: 'password', password_confirmation: 'password', role: 'user' } }
+      post :create, params: { user: { first_name: 'Jim', last_name: 'Smith', email: 'Jim@example.com', city: 'Denver', state: 'CO', password: 'password', password_confirmation: 'password' } }
 
       result = JSON.parse(response.body, symbolize_names: true)
 
