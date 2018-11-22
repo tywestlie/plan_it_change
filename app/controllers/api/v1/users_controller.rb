@@ -25,6 +25,11 @@ class Api::V1::UsersController < ApiController
   end
 
   def destroy
+    user = User.find(params[:id])
+
+    if authorized? && user.destroy
+      render json: { user: "#{user.email}", destroyed: "Yes" }, status: 200
+    end
   end
 
   private

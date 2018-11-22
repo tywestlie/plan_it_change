@@ -55,5 +55,31 @@ RSpec.describe Api::V1::EventsController, type: :controller do
       expect(result[2][:information]).to eq(@event3.information)
       expect(result[2][:owner]).to eq(@event3.owner)
     end
+
+    it 'should return an error if there are no events for that area' do
+      get :index, params: {city: "Los Angeles", state: "CA"}
+
+      result = parse_json(response)
+
+      expect(response).to have_http_status(404)
+      expect(result[:code]).to eq("not_found")
+      expect(result[:message]).to eq("Not found")
+    end
+  end
+
+  describe "Patch #update" do
+    it 'should return a successful update message if the record is updated' do
+      authenticated_header(request, @user1)
+
+      patch :update, params: {use_route: "/api/v1/event_update/#{@event.id}", id: "#{@event.id}", event: { city: "Los Angeles", state: "CA"}}
+
+      result = parse_json(response)
+
+      expect(response).to have_http_status(200)
+      expect(result[:event]).to eq("#{@event.event_name}")
+      expect(result[:updated]).to eq("Yes")
+      expect(Event.find(@event.id).state).to eq("ca")
+      expect(Event.find(@event.id).city).to eq("los angeles")
+    end
   end
 end

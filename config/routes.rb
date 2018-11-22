@@ -15,9 +15,9 @@ Rails.application.routes.draw do
       post '/user_create', to: 'users#create'
 
       # Event routes
-      get '/event_show/:id', to: 'events#show'
       get '/event_index', to: 'events#index'
-      patch '/event_update', to: 'events#update'
+      get '/event_show/:id', to: 'events#show'
+      patch '/event_update/:id', to: 'events#update'
       post 'event_create', to: 'events#create'
     end
   end

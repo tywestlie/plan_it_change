@@ -10,14 +10,17 @@ class Api::V1::EventsController < ApiController
   def index
     events = Event.find_events_by_city_and_state(params[:city].downcase, params[:state].downcase)
 
-    render json: events, status: 200
+    if !events.empty?
+      render json: events, status: 200
+    else
+      raise ActiveRecord::RecordNotFound
+    end
   end
 
   def update
-    @event = Event.find(params[:id])
-
-    if authorized? && event.update(event_params)
-      render status: 200, json: { event: "#{event.name}", updated: "Yes" }
+    event = Event.find(params[:id])
+    if authorized?(event) && event.update(event_params)
+      render status: 200, json: { event: "#{event.event_name}", updated: "Yes" }
     end
   end
 
@@ -25,7 +28,7 @@ class Api::V1::EventsController < ApiController
     event = Event.new(event_params)
 
     if event.save!
-      render status: 200, json: { event: "#{event.name}", created: "Yes"}
+      render status: 200, json: { event: "#{event.event_name}", created: "Yes"}
     end
   end
 
@@ -35,10 +38,10 @@ class Api::V1::EventsController < ApiController
   private
 
   def event_params
-    params.require(:event).permit(:city, :state, :information, :start, :end, :owner, :name)
+    params.require(:event).permit(:city, :state, :information, :start, :end, :owner, :event_name)
   end
 
-  def authorized?
-    current_user.owns_event?(@event)
+  def authorized?(event)
+    current_user.owns_event?(event)
   end
 end
