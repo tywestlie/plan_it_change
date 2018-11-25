@@ -25,7 +25,7 @@ class Api::V1::EventsController < ApiController
   end
 
   def create
-    event = Event.new(event_params)
+    event = current_user.event.new(event_params)
 
     if event.save!
       render status: 200, json: { event: "#{event.event_name}", created: "Yes"}
@@ -33,6 +33,11 @@ class Api::V1::EventsController < ApiController
   end
 
   def destroy
+    event = Event.find(params[:id])
+
+    if authorized?(event) && event.destroy
+      render status: 200, json: { event: "#{event.event_name}", deleted: "Yes"}
+    end
   end
 
   private
