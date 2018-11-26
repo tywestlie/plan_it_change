@@ -1,6 +1,6 @@
 class Api::V1::CommentsController < ApiController
   def index
-    comments = Post.find(params[:post][:id]).comments
+    comments = Post.find(params[:post_id]).comments
 
     if !comments.empty?
       render json: comments, status: 200
@@ -16,7 +16,7 @@ class Api::V1::CommentsController < ApiController
   end
 
   def create
-    comment = Post.find(params[:post][:id]).comment.new(comment_params)
+    comment = Post.find(params[:post_id]).comment.new(comment_params)
 
     if comment.save
       render json: { comment: "#{comment.id}", created: "Yes"}, status: 200
