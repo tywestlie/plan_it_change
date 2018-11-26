@@ -19,12 +19,15 @@ class Api::V1::EventsController < ApiController
 
   def update
     event = Event.find(params[:id])
+    event_params = event_params.delete(:owner)
+
     if authorized?(event) && event.update(event_params)
       render status: 200, json: { event: "#{event.event_name}", updated: "Yes" }
     end
   end
 
   def create
+    event_params = event_params.merge(owner: "#{current_user.email}")
     event = current_user.event.new(event_params)
 
     if event.save!
@@ -43,7 +46,7 @@ class Api::V1::EventsController < ApiController
   private
 
   def event_params
-    params.require(:event).permit(:city, :state, :information, :start, :end, :owner, :event_name)
+    params.require(:event).permit(:city, :state, :information, :start, :end, :event_name)
   end
 
   def authorized?(event)

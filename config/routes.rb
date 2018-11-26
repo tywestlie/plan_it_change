@@ -30,10 +30,10 @@ Rails.application.routes.draw do
       delete '/post_delete/:id', to: 'posts#destroy'
 
       # Comment routes
-      get '/comment_index', to: 'comments#index'
+      get '/comment_index/:post_id', to: 'comments#index'
       get '/comment_show/:id', to: 'comments#show'
       patch '/comment_update/:id', to: 'comments#update'
-      post '/comment_create', to: 'comments#create'
+      post '/comment_create/:post_id', to: 'comments#create'
       delete '/comment_delete/:id', to: 'comments#destroy'
     end
   end

@@ -33,9 +33,39 @@
 ### User Routes
 
   - `/user_index?city=[city]&state=[state]` - This route will list all user's in the system for that particular city and state.
-  - `/user_show/[id]` - This route will return the information for one user. A further iteration of this code will use friendly IDs.
-  - `/user_update/[id]` - This route will allow the user to update their information.
-    - Parameters accpeted are - `email, first_name, last_name, city, state, password, password_confirmation`.
+  - `/user_show/[user_id]` - This route will return the information for one user. A further iteration of this code will use friendly IDs.
+  - `/user_update/[user_id]` - This route will allow the user to update their information.
+    - Parameters accepted are - `email, first_name, last_name, city, state, password, password_confirmation`.
   - `/user_create` - This route will allow a user to create an account.
-    - Parameters accpeted are - `email, first_name, last_name, city, state, password, password_confirmation`.
-  - `/user_delete/[id]` - This route will allow a user to delete their account.
+    - Parameters accepted are - `email, first_name, last_name, city, state, password, password_confirmation`.
+  - `/user_delete/[user_id]` - This route will allow a user to delete their account.
+
+### Event Routes
+
+  - `/event_index?city=[city]&state=[state]` - This route will list all of the events for that particular city and state.
+  - `/event_show/[event_id]` - This route will return the information for one event. A further iteration of this code will use friendly IDs.
+  - `/event_update/[event_id]` - This route will allow the user who owns the event to update the event information.
+    - Parameters accepted are - `city, state, information, start_time, end_time, event_name`.
+  - `/event_create` - This route will allow a user to create an event.
+    - Parameters accepted are - `city, state, information, start_time, end_time, event_name`.
+  - `/event_delete/[event_id]` - This route will allow a user to delete an event, provided they are the owner.
+
+### Post Routes
+
+  - `/post_index?city=[city]&state=[state]` - This route will list all of the posts for that particular city and state.
+  - `/post_show/[post_id]` - This route will return the information for that one post.
+  - `/post_update/[post_id]` - This route will allow a user to update the information inside a post, provided they are the owner of that post.
+    - Parameters accepted are - `body`.
+  - `/post_create` - This route will allow a user to create a post.
+    - Parameters accepted are - `body`.
+  - `/post_delete/[post_id]` - This route will allow the user to delete a post, provided they are the owner.
+
+### Comment Routes
+
+  - `/comment_index/[post_id]` - This route will find all comments for a specific post.
+  - `/comment_show/[comment_id]` - This route will find one specific comment by id.
+  - `/comment_update/[comment_id]` - This route will allow a user to update the information inside a comment, provided they are the owner of the comment.
+    - Parameters accepted are - `body`.
+  - `/comment_create/[post_id]` - This route will allow a user to create a comment on post.
+    - Parameters accepted are - `body`.
+  - `/comment_delete/[comment_id]` - This route will allow a user to delete a comment, provided they are the owner of the comment.
